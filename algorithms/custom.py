@@ -50,7 +50,7 @@ def search2(state, goal_state):
         n = len(node.state[0])
         for i in range(m):
             for j in range(n):
-                strength = m*n - (i*m+j)
+                strength = m*n - node.state[i][j]
                 tile_i, tile_j = tiles_places[node.state[i][j]][1]
                 if i != tile_i or j != tile_j:
                     cost += (abs(tile_i - i) + abs(tile_j - j))*strength

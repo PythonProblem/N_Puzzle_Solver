@@ -10,7 +10,7 @@ import time
 
 random.seed(31)
 
-searches = [bfs_search, man_search, mis_search, cus_search1, cus_search2]
+searches = [bfs_search, man_search, mis_search, cus_search1]
 names = ['BFS', 'A* Search with manhattan distance heuristic',
          'A* Search with misplaced tile count heuristic', 'A* search with custom distance heuristic']
 
@@ -124,29 +124,13 @@ while(choice != 1 and choice != 2):
 print("--------------------------------------")
 print()
 
-# Search algorithm
-print("1. Breadth first search.")
-print("2. Depth first search.")
-print("3. A-start search with manhattan distance heuristic.")
-print("4. A-start search with misplaced tile heuristic.")
+for i in range(len(names)):
+    print(str(i+1)+'.', names[i])
 
 print()
 choice = 0
-while(not choice in range(1, 5)):
-    choice = int(input("Enter choice: "))
-
-    if(choice == 1):
-        search_function = bfs_search
-        search_name = "Breadth first search."
-    elif(choice == 2):
-        search_function = dfs_search
-        search_name = "Depth first search."
-    elif(choice == 3):
-        search_function = man_search
-        search_name = "A-star search with manhattan distance heuristic."
-    elif(choice == 4):
-        search_function = cus_search2
-        search_name = "A-star search with misplaced-tile heuristic."
+while(not choice < len(names)):
+    choice = int(input("Enter choice: "))-1
 
 print("--------------------------------------")
 print()
@@ -154,7 +138,7 @@ print()
 # Enter details
 print("Start state: ", start_state)
 print("Goal state: ", goal_state)
-print("Search function: ", search_name)
+print("Search function: ", names[choice])
 
 print("--------------------------------------")
 print()
@@ -166,7 +150,7 @@ print("--------------------------------------")
 print()
 
 # Start
-states = search_function(start_state, goal_state)
+states = searches[i](start_state, goal_state)
 
 state_index = 0
 number_of_states = len(states)
