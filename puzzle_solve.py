@@ -26,7 +26,7 @@ def draw_puzzle():
             message = grid_objects[i][j]
             message.configure(text=number)
 
-    window.after(10, draw_puzzle)
+    window.after(20, draw_puzzle)
 
 
 def prev_state():
@@ -44,7 +44,7 @@ def next_state():
 
     if(state_index == number_of_states-1):
         return False
-
+    print(state_index)
     state_index += 1
 
     draw_puzzle()
@@ -128,8 +128,8 @@ for i in range(len(names)):
     print(str(i+1)+'.', names[i])
 
 print()
-choice = 0
-while(not choice < len(names)):
+choice = -1
+while(not(choice >= 0 and choice < len(names))):
     choice = int(input("Enter choice: "))-1
 
 print("--------------------------------------")
@@ -154,7 +154,7 @@ states = searches[i](start_state, goal_state)
 
 state_index = 0
 number_of_states = len(states)
-
+print(number_of_states)
 # Create window
 window = Tk()
 window.title("Puzzle solver")

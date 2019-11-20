@@ -13,16 +13,16 @@ random.seed(31)
 searches = [bfs_search, mis_search, man_search, cus_search1]
 names = ['BFS', 'Misplaced Tiles', 'Manhattan Distance', 'Custom Heuristic']
 
-# searches = [cus_search1, cus_search2]
-# names = ['Custom_1', 'Custom_2']
+# searches = [bfs_search, cus_search1]
+# names = ['BFS', 'Custom_1']
 
-m, n = 3, 3
+m, n = 9, 9
 goal_state = []
 for i in range(m):
     goal_state.append([i*m+j for j in range(n)])
 
 search_length = len(searches)
-max_steps = 30
+max_steps = 10
 l = [[] for i in range(search_length)]
 files = [open('./analysis_data/'+names[i]+'.txt', 'w')
          for i in range(search_length)]
